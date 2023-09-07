@@ -1,7 +1,7 @@
 <template>
     <footer class="footer">
         <div class="footer_in">
-            <p class="footer_policy"><nuxt-link to="/policy/">個人情報保護方針</nuxt-link></p>
+            <p class="footer_policy"><nuxt-link to="/2020/policy/">個人情報保護方針</nuxt-link></p>
             <p class="footer_contact">Object-Oriented Conference へのお問い合わせは公式Twitter(<a href="https://twitter.com/oocon_2020">@oocon_2020</a>）までお願い致します。</p>
         </div>
     </footer>
