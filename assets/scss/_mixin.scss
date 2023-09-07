@@ -1,0 +1,45 @@
+$Primary: #f4de0f;
+$Secondary: #ff6022;
+$Tertiary: #18d3c5;
+$Quaternary: #8573ef;
+$TextPrimary: #111111;
+$TextSecondary: #999999;
+$White: #ffffff;
+$Link: #2F80ED;
+$Twitter: #1DA1F2;
+$Facebook: #1877F2;
+
+@mixin ff-en {
+    font-family: canada-type-gibson, sans-serif;
+    font-style: normal;
+    font-weight: 100;
+}
+
+@mixin justify {
+    text-align: justify;
+    text-justify: inter-ideograph; /* IE用 */
+  }
+
+// メディアクエリ設定
+// Media queries
+// メディアクエリ設定
+// Media queries
+$screen-lg-min: 1041px; 
+$screen-md-max: 1040px;
+$screen-md-min: 769px; 
+$screen-sm-max: 768px; //スマホ最大
+@mixin lg-screen {
+    @media screen and (min-width: $screen-lg-min) {
+        @content;
+    }
+}
+@mixin md-screen {
+    @media (max-width: $screen-md-max) and (min-width: $screen-md-min) {
+        @content;
+    }
+}
+@mixin sm-screen {
+    @media screen and (max-width: $screen-sm-max) {
+        @content;
+    }
+}
