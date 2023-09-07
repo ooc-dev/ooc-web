@@ -30,7 +30,7 @@
                 <a href="https://fortee.jp/object-oriented-conference-2020/proposal">プロポーザル一覧</a>
             </li>
             <li class="nav_parent_item nav_parent_item-policy">
-                <nuxt-link :class="{ 'is-cur' : cur === 'policy' }"  @click.native="toggle()" to="/policy/">個人情報保護方針</nuxt-link>
+                <nuxt-link :class="{ 'is-cur' : cur === 'policy' }"  @click.native="toggle()" to="/2020/policy/">個人情報保護方針</nuxt-link>
             </li>
         </ul>
         <div class="nav_twitter">
