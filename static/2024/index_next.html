@@ -25,40 +25,48 @@
     <script src="https://kit.fontawesome.com/380cb7316a.js" crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
     <style>
+        :root {
+            --color-heading: #746cea;
+            --color-heading-shadow: #823de6;
+            --color-link: #5b91ee;
+            --color-link-active: #13b4f1;
+        }
         * {
             font-family: 'Montserrat', 'Noto Sans JP', sans-serif;
+            line-height: 2;
         }
         h2, h3 {
             font-weight: bold;
-            color: #746cea;
+            color: var(--color-heading);
         }
         a {
-            color: #000;
+            color: var(--color-link);
             text-decoration: none;
         }
+        a:hover {
+            color: var(--color-link-active);
+        }
         .hero-wrap {
-            background-color: #13b4f1;
+            background-color: var(--color-heading);
             background: linear-gradient(25deg, #823de6, #746cea, #5b91ee, #13b4f1);
-            overflow: hidden;
             background-size: 200% 200%;
             animation: bggradient 10s ease infinite;
         }
         .navbar .navbar-brand {
-            color: #746cea;
+            color: var(--color-heading);
         }
         .hero-wrap .btn-outline-light:hover {
-            color: #746cea;
+            color: var(--color-heading);
         }
         .btn-primary {
-            --bs-btn-bg: #746cea;
-            --bs-btn-border-color: #746cea;
-            --bs-btn-hover-bg: #823de6;
-            --bs-btn-hover-border-color: #823de6;
-            --bs-btn-active-bg: #823de6;
-            --bs-btn-active-border-color: #823de6;
-            --bs-btn-disabled-bg: #746cea;
-            --bs-btn-disabled-border-color: #746cea;
-
+            --bs-btn-bg: var(--color-heading);
+            --bs-btn-border-color: var(--color-heading);
+            --bs-btn-hover-bg: var(--color-heading-shadow);
+            --bs-btn-hover-border-color: var(--color-heading-shadow);
+            --bs-btn-active-bg: var(--color-heading-shadow);
+            --bs-btn-active-border-color: var(--color-heading-shadow);
+            --bs-btn-disabled-bg: var(--color-heading);
+            --bs-btn-disabled-border-color: var(--color-heading);
         }
         .navbar {
             color: #000;
@@ -70,14 +78,9 @@
             margin: 0;
             padding: 0;
         }
-        ul.news div.published {
-            color: #aaa;
-        }
-        ul.news li+li {
-            margin-top: 2rem;
-        }
-        ul.news div.title {
-            font-weight: bold;
+        div.staff-list .banner img {
+            border-radius: 50%;
+            box-shadow: 0 0 10px 0 rgba(116, 108, 234, 0.2);
         }
         footer {
             background-color: #666;
@@ -86,37 +89,26 @@
         footer a {
             color: #ccc;
         }
-        footer .links a {
-            padding-right: 1rem;
-        }
-        footer .links a+a {
-            padding-left: 1rem;
-            border-left: 1px solid #aaa;
+        footer span.divider {
+            color: #ccc;
         }
         footer .copyright {
             color: #aaa;
         }
-        .staff .banner img {
-            border-radius: 50%;
-            box-shadow: 0 0 10px 0 rgba(116, 108, 234, 0.2);
-        }
-        .icon i {
-            font-size: 2.25rem;
-        }
-        .hero-item.timer .value {
+        div.ooc-timer .value {
             font-family: 'Anton', 'Montserrat', 'Noto Sans JP', sans-serif;
             font-size: 2.5rem;
             background-color: #fff;
-            color: #746cea;
+            color: var(--color-heading);
             border-radius: .25rem;
             letter-spacing: .25rem;
         }
         @media screen and (max-width: 576px) {
-            .hero-item.timer .value {
+            div.ooc-timer .value {
                 font-size: 2rem;
             }
         }
-        .hero-item.timer .caption {
+        div.ooc-timer .caption {
             font-size: 0.8rem;
         }
         @keyframes bggradient {
@@ -127,13 +119,8 @@
     </style>
     <script>
         $(function(){
-            // resize
-            $('.js-fullheight').css('height', $(window).height());
-            $(window).resize(function(){
-                $('.js-fullheight').css('height', $(window).height());
-            });
             const showTimer = function(){
-                const $timer = $('.hero-item.timer');
+                const $timer = $('div.ooc-timer');
                 let diff = (new Date('2024/03/24 11:00:00+0900')).getTime() - (new Date()).getTime();
                 // 開始時刻を過ぎていたらタイマーを消す
                 if (diff < 0) {
@@ -163,6 +150,10 @@
     </script>
 </head>
 <body>
+<!---
+    4年ぶりに帰ってきたObject-Oriented Conferenceです！
+    みんなで盛り上げていこう！スタッフめっちゃ頑張ってるよ！
+-->
     <nav class="navbar navbar-expand-lg fixed-top">
         <div class="container">
             <a class="navbar-brand" href="#">Object Oriented Conference 2024</a>
@@ -182,7 +173,7 @@
     </nav>
 
     <section class="hero-wrap">
-        <div class="text-white d-flex justify-content-center align-items-center text-center js-fullheight">
+        <div class="text-white d-flex justify-content-center align-items-center text-center mw-100 min-vh-100">
             <div class="mt-5">
                 <div class="mb-5 p-5">
                     <!-- OOC Logo -->
@@ -202,33 +193,31 @@
                 <h1 class="mb-4">Object Oriented Conference 2024</h1>
                 <div class="d-flex justify-content-center mb-4">
                     <div class="p-4">
-                        <div class="icon mb-2"><i class="fa-solid fa-fw fa-calendar-days"></i></div>
+                        <div class="fs-1"><i class="fa-solid fa-fw fa-calendar-days"></i></div>
                         <div>March 24, 2024</div>
                     </div>
                     <div class="p-4">
-                        <div class="icon mb-2"><i class="fa-solid fa-fw fa-location-dot"></i></div>
+                        <div class="fs-1"><i class="fa-solid fa-fw fa-location-dot"></i></div>
                         <div>お茶の水女子大学</div>
                     </div>
                 </div>
                 <div class="d-flex justify-content-center mb-4">
-                    <div class="hero-item timer col-12 p-3">
-                        <div class="row row-cols-4">
-                            <div class="col">
-                                <div class="value day mb-2">-</div>
-                                <div class="caption">DAYS</div>
-                            </div>
-                            <div class="col">
-                                <div class="value hour mb-2">-</div>
-                                <div class="caption">HOURS</div>
-                            </div>
-                            <div class="col">
-                                <div class="value min mb-2">-</div>
-                                <div class="caption">MINS</div>
-                            </div>
-                            <div class="col">
-                                <div class="value sec mb-2">-</div>
-                                <div class="caption">SECONDS</div>
-                            </div>
+                    <div class="ooc-timer w-100 row row-cols-4 p-3">
+                        <div class="col">
+                            <div class="value day mb-2">-</div>
+                            <div class="caption">DAYS</div>
+                        </div>
+                        <div class="col">
+                            <div class="value hour mb-2">-</div>
+                            <div class="caption">HOURS</div>
+                        </div>
+                        <div class="col">
+                            <div class="value min mb-2">-</div>
+                            <div class="caption">MINS</div>
+                        </div>
+                        <div class="col">
+                            <div class="value sec mb-2">-</div>
+                            <div class="caption">SECONDS</div>
                         </div>
                     </div>
                 </div>
@@ -238,25 +227,22 @@
 
     <section class="bg-light">
         <div class="container pt-5 pb-5">
-            <div class="row justify-content-center">
-                <div class="text-center heading-section">
-                    <h2 class="mb-4" id="news">News</h2>
-                </div>
-            </div>
-            <div class="mt-2 mb-2">
+            <h2 class="text-center mb-4" id="news">News</h2>
+            <div class="row mt-2 mb-2">
                 <ul class="news">
-                    <li>
-                        <div class="published">2023-09-25</div>
-                        <div class="title">ティザーサイトを公開しました</div>
-                        <div class="body md">
-                            <p>Object-Oriented Conference 2024のティザーサイトを公開しました。</p>
+                    <li class="mb-4">
+                        <div class="published text-black-50">2023-09-10</div>
+                        <div class="title fw-bold">ティザーサイトを公開しました</div>
+                        <div class="body">
+                            Object-Oriented Conference 2024 のティザーサイトを公開しました。
                         </div>
                     </li>
-                    <li>
-                        <div class="published">2023-09-25</div>
-                        <div class="title">スポンサー募集を開始しました</div>
-                        <div class="body md">
-                            <p>Object-Oriented Conference 2024のスポンサー募集を開始しました。詳しくは「<a href="https://docs.google.com/presentation/d/1Yo5wWvlILcWSAKRmoOP79x71hU56u_rviMRgGHsMHLc/edit?usp=sharing" target="_blank">スポンサーメニューのご案内</a>」をご覧ください。</p>
+                    <li class="mb-4">
+                        <div class="published text-black-50">2023-09-25</div>
+                        <div class="title fw-bold">スポンサー募集を開始しました</div>
+                        <div class="body">
+                            Object-Oriented Conference 2024 のスポンサー募集を開始しました。詳しくは以下をご覧ください。<br />
+                            <i class="fa-solid fa-arrow-right me-2"></i><a href="https://docs.google.com/presentation/d/1Yo5wWvlILcWSAKRmoOP79x71hU56u_rviMRgGHsMHLc/edit?usp=sharing" target="_blank">スポンサーメニューのご案内</a>
                         </div>
                     </li>
                 </ul>
@@ -266,171 +252,157 @@
 
     <section class="bg-white">
         <div class="container pt-5 pb-5">
-            <div class="row justify-content-center">
-                <div class="text-center heading-section">
-                    <h2 class="mb-4" id="overview">Overview</h2>
-                </div>
+            <h2 class="text-center mb-4" id="overview">Overview</h2>
+            <div class="row mt-2 mb-2">
+                <div class="col-xl-1 col-md-2 col-3">開催日時</div>
+                <div class="col-xl-11 col-md-10 col-9">2024年3月24日（日）11:00〜18:00</div>
             </div>
-            <div class="mb-4">
-                <div class="d-flex">
-                    <div class="p-2">開催日時</div>
-                    <div class="p-2 flex-grow-1">2024年3月24日（日）11:00〜18:00</div>
-                </div>
-                <div class="d-flex">
-                    <div class="p-2">開催場所</div>
-                    <div class="p-2 flex-grow-1">お茶の水女子大学</div>
-                </div>
-                <div class="d-flex">
-                    <div class="p-2">参加対象</div>
-                    <div class="p-2 flex-grow-1">オブジェクト指向や分析設計について興味をもつソフトウェア技術者</div>
-                </div>
-                <div class="d-flex">
-                    <div class="p-2">主催情報</div>
-                    <div class="p-2 flex-grow-1">Object Oriented Conference 実行委員会（公式Twitter：<a href="https://twitter.com/ooc_dev" target="_blank">@ooc_dev</a>）</div>
-                </div>
+            <div class="row mt-2 mb-2 bg-light">
+                <div class="col-xl-1 col-md-2 col-3">開催場所</div>
+                <div class="col-xl-11 col-md-10 col-9">お茶の水女子大学</div>
+            </div>
+            <div class="row mt-2 mb-2">
+                <div class="col-xl-1 col-md-2 col-3">参加対象</div>
+                <div class="col-xl-11 col-md-10 col-9">オブジェクト指向や分析設計について興味をもつソフトウェア技術者</div>
+            </div>
+            <div class="row mt-2 mb-2 bg-light">
+                <div class="col-xl-1 col-md-2 col-3">主催者</div>
+                <div class="col-xl-11 col-md-10 col-9">Object Oriented Conference 実行委員会</div>
+            </div>
+            <div class="row mt-2 mb-2">
+                <div class="col-xl-1 col-md-2 col-3">Twitter</div>
+                <div class="col-xl-11 col-md-10 col-9"><a href="https://twitter.com/ooc_dev" target="_blank">@ooc_dev</a></div>
             </div>
         </div>
     </section>
 
     <section class="bg-light">
         <div class="container pt-5 pb-5">
-            <div class="row justify-content-center">
-                <div class="text-center heading-section">
-                    <h2 class="mb-4" id="access">Access</h2>
-                </div>
+            <h2 class="text-center mb-4" id="access">Access</h2>
+            <div class="d-flex mt-2 mb-2">
+                <div class="me-3"><i class="fa-solid fa-fw fa-location-dot"></i></div>
+                <div class="flex-grow-1">東京都文京区大塚2丁目1-1（<a href="https://goo.gl/maps/THLV9yUdd7yQbBWd7" target="_blank">Googleマップ</a>）</div>
             </div>
-            <div class="d-flex">
-                <div class="p-2"><i class="fa-solid fa-fw fa-location-dot"></i></div>
-                <div class="p-2 flex-grow-1">東京都文京区大塚2丁目1-1（<a href="https://goo.gl/maps/THLV9yUdd7yQbBWd7" target="_blank">Googleマップ</a>）</div>
-            </div>
-            <div class="d-flex">
-                <div class="p-2"><i class="fa-solid fa-fw fa-train"></i></div>
-                <div class="p-2 flex-grow-1">
-                    <p>東京メトロ丸ノ内線「茗荷谷」駅より徒歩 7 分</p>
-                    <p>東京メトロ有楽町線「護国寺」駅より徒歩 8 分</p>
-                    <p>都営バス「大塚2丁目」停留所下車徒歩 1 分</p>
+            <div class="d-flex mt-2 mb-2">
+                <div class="me-3"><i class="fa-solid fa-fw fa-train"></i></div>
+                <div class="flex-grow-1">
+                    東京メトロ丸ノ内線「茗荷谷」駅より徒歩 7 分<br />
+                    東京メトロ有楽町線「護国寺」駅より徒歩 8 分<br />
+                    都営バス「大塚2丁目」停留所下車徒歩 1 分<br />
                 </div>
             </div>
         </div>
-        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3239.2960249010666!2d139.72899397617297!3d35.718937572574994!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60188da7f9b14899%3A0x8be4584bf2f85995!2z44GK6Iy244Gu5rC05aWz5a2Q5aSn5a2m!5e0!3m2!1sja!2sjp!4v1694053536193!5m2!1sja!2sjp" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
     </section>
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3239.2960249010666!2d139.72899397617297!3d35.718937572574994!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60188da7f9b14899%3A0x8be4584bf2f85995!2z44GK6Iy244Gu5rC05aWz5a2Q5aSn5a2m!5e0!3m2!1sja!2sjp!4v1694053536193!5m2!1sja!2sjp" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
 
     <section class="bg-white">
         <div class="container pt-5 pb-5">
-            <div class="row justify-content-center">
-                <div class="text-center heading-section">
-                    <h2 class="mb-4" id="sponsor">Sponsor</h2>
+            <h2 class="text-center mb-4" id="sponsor">Sponsor</h2>
+            <div class="row mt-2 mb-2">
+                <div class="col">
+                    Object Oriented Conference 2024 を応援してくださる企業様からのご協賛を募集いたします。<br />
+                    各プランともに先着順でお申し込みを受け付けています。<br />
+                    以下リンクより資料をご覧いただき、2024年1月31日までにお申し込みください。<br />
                 </div>
-                <p class="mt-5 mb-2">
-                    <p>Object Oriented Conference 2024を応援してくださる企業様からのご協賛を募集いたします。</p>
-                    <p>各プランともに先着順でご協賛を受け付けております。</p>
-                    <p>以下リンクより資料をご覧いただき、2024年1月31日までにお申し込みください。</p>
-                </p>
-                <p class="mt-2 mb-5">
-                    <a class="btn btn-lg btn-primary" href="https://docs.google.com/presentation/d/1Yo5wWvlILcWSAKRmoOP79x71hU56u_rviMRgGHsMHLc/edit?usp=sharing" target="_blank">スポンサーメニューのご案内</a>
-                </p>
+            </div>
+            <div class="row mt-4 mb-2">
+                <div class="col">
+                    <a class="btn btn-primary" href="https://docs.google.com/presentation/d/1Yo5wWvlILcWSAKRmoOP79x71hU56u_rviMRgGHsMHLc/edit?usp=sharing" target="_blank">スポンサーメニューのご案内</a>
+                </div>
             </div>
         </div>
     </section>
 
     <section class="bg-light">
         <div class="container pt-5 pb-5">
-            <div class="row justify-content-center">
-                <div class="text-center heading-section">
-                    <h2 class="mb-4" id="staff">Staff</h2>
+            <h2 class="text-center mb-4" id="staff">Staff</h2>
+            <h3 class="mb-4" id="staff-core">Core</h3>
+            <div class="staff-list row row-cols-xl-6 row-cols-lg-5 row-cols-md-4 row-cols-sm-3 row-cols-2 mb-5">
+                <div class="staff col p-4">
+                    <a href="https://twitter.com/ariaki4dev" target="_blank">
+                        <div class="banner mb-4">
+                            <img class="img-fluid" src="https://fortee.jp/files/oocon-2024/avatar/f5ccf57d-7b94-4263-b7e0-257608ee99f1.jpg" alt="ariaki" />
+                        </div>
+                        <div class="caption text-center">
+                            ariaki
+                        </div>
+                    </a>
                 </div>
-                <div class="row">
-                    <h3 class="mb-4" id="staff-core">Core</h3>
+                <div class="staff col p-4">
+                    <a target="_blank">
+                        <div class="banner mb-4">
+                            <img class="img-fluid" src="https://fortee.jp/files/oocon-2024/avatar/a15d190f-e6f9-4d31-bbc0-aeaf087b42e3.jpg" alt="ayk" />
+                        </div>
+                        <div class="caption text-center">
+                            ayk
+                        </div>
+                    </a>
                 </div>
-                <div class="stafflist row row-cols-xl-6 row-cols-lg-5 row-cols-md-4 row-cols-sm-3 row-cols-2 mb-5">
-                    <div class="staff col p-4">
-                        <a href="https://twitter.com/ariaki4dev" target="_blank">
-                            <div class="banner mb-4">
-                                <img class="img-fluid" src="https://fortee.jp/files/oocon-2024/avatar/f5ccf57d-7b94-4263-b7e0-257608ee99f1.jpg" alt="ariaki" />
-                            </div>
-                            <div class="caption text-center">
-                                ariaki
-                            </div>
-                        </a>
-                    </div>
-                    <div class="staff col p-4">
-                        <a target="_blank">
-                            <div class="banner mb-4">
-                                <img class="img-fluid" src="https://fortee.jp/files/oocon-2024/avatar/a15d190f-e6f9-4d31-bbc0-aeaf087b42e3.jpg" alt="ayk" />
-                            </div>
-                            <div class="caption text-center">
-                                ayk
-                            </div>
-                        </a>
-                    </div>
-                    <div class="staff col p-4">
-                        <a target="_blank">
-                            <div class="banner mb-4">
-                                <img class="img-fluid" src="https://fortee.jp/images/avatar-blank.png" alt="furuya" />
-                            </div>
-                            <div class="caption text-center">
-                                furuya
-                            </div>
-                        </a>
-                    </div>
-                    <div class="staff col p-4">
-                        <a target="_blank">
-                            <div class="banner mb-4">
-                                <img class="img-fluid" src="https://fortee.jp/images/avatar-blank.png" alt="galapon" />
-                            </div>
-                            <div class="caption text-center">
-                                galapon
-                            </div>
-                        </a>
-                    </div>
-                    <div class="staff col p-4">
-                        <a target="_blank">
-                            <div class="banner mb-4">
-                                <img class="img-fluid" src="https://fortee.jp/images/avatar-blank.png" alt="k-kijima" />
-                            </div>
-                            <div class="caption text-center">
-                                k-kijima
-                            </div>
-                        </a>
-                    </div>
-                    <div class="staff col p-4">
-                        <a target="_blank">
-                            <div class="banner mb-4">
-                                <img class="img-fluid" src="https://fortee.jp/images/avatar-blank.png" alt="nrslib" />
-                            </div>
-                            <div class="caption text-center">
-                                nrslib
-                            </div>
-                        </a>
-                    </div>
-                    <div class="staff col p-4">
-                        <a target="_blank">
-                            <div class="banner mb-4">
-                                <img class="img-fluid" src="https://fortee.jp/images/avatar-blank.png" alt="onishi-feuer" />
-                            </div>
-                            <div class="caption text-center">
-                                onishi-feuer
-                            </div>
-                        </a>
-                    </div>
-                    <div class="staff col p-4">
-                        <a target="_blank">
-                            <div class="banner mb-4">
-                                <img class="img-fluid" src="https://fortee.jp/images/avatar-blank.png" alt="oyakata2438" />
-                            </div>
-                            <div class="caption text-center">
-                                oyakata2438
-                            </div>
-                        </a>
-                    </div>
+                <div class="staff col p-4">
+                    <a target="_blank">
+                        <div class="banner mb-4">
+                            <img class="img-fluid" src="https://fortee.jp/images/avatar-blank.png" alt="furuya" />
+                        </div>
+                        <div class="caption text-center">
+                            furuya
+                        </div>
+                    </a>
                 </div>
-                <div class="row">
-                    <h3 class="mb-4" id="staff-1day">1-day</h3>
+                <div class="staff col p-4">
+                    <a target="_blank">
+                        <div class="banner mb-4">
+                            <img class="img-fluid" src="https://fortee.jp/images/avatar-blank.png" alt="galapon" />
+                        </div>
+                        <div class="caption text-center">
+                            galapon
+                        </div>
+                    </a>
                 </div>
-                <div class="stafflist row mb-5">
-                    <div class="col mb-2 text-muted">
-                        <p>2024年1月ごろに当日スタッフとしてご協力いただける方を募集する予定です。</p>
-                    </div>
+                <div class="staff col p-4">
+                    <a target="_blank">
+                        <div class="banner mb-4">
+                            <img class="img-fluid" src="https://fortee.jp/images/avatar-blank.png" alt="k-kijima" />
+                        </div>
+                        <div class="caption text-center">
+                            k-kijima
+                        </div>
+                    </a>
+                </div>
+                <div class="staff col p-4">
+                    <a target="_blank">
+                        <div class="banner mb-4">
+                            <img class="img-fluid" src="https://fortee.jp/images/avatar-blank.png" alt="nrslib" />
+                        </div>
+                        <div class="caption text-center">
+                            nrslib
+                        </div>
+                    </a>
+                </div>
+                <div class="staff col p-4">
+                    <a target="_blank">
+                        <div class="banner mb-4">
+                            <img class="img-fluid" src="https://fortee.jp/images/avatar-blank.png" alt="onishi-feuer" />
+                        </div>
+                        <div class="caption text-center">
+                            onishi-feuer
+                        </div>
+                    </a>
+                </div>
+                <div class="staff col p-4">
+                    <a target="_blank">
+                        <div class="banner mb-4">
+                            <img class="img-fluid" src="https://fortee.jp/images/avatar-blank.png" alt="oyakata2438" />
+                        </div>
+                        <div class="caption text-center">
+                            oyakata2438
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <h3 class="mb-4" id="staff-1day">1-day</h3>
+            <div class="staff-list row mb-5">
+                <div class="col text-muted">
+                    2024年1月ごろに当日スタッフとしてご協力いただける方を募集する予定です。
                 </div>
             </div>
         </div>
@@ -439,14 +411,17 @@
     <footer>
         <div class="container pt-5 pb-5">
             <div class="links mb-4">
-                <a href="https://esa-pages.io/p/sharing/20260/posts/45/b9e71589a45583e5c5cd.html">行動規範</a>
-                <a href="https://esa-pages.io/p/sharing/20260/posts/44/51a5f161c223ed816560.html">プライバシーポリシー</a>
+                <a href="https://esa-pages.io/p/sharing/20260/posts/45/b9e71589a45583e5c5cd.html" target="_blank">行動規範</a>
+                <span class="divider ms-3 me-3">|</span>
+                <a href="https://esa-pages.io/p/sharing/20260/posts/44/51a5f161c223ed816560.html" target="_blank">プライバシーポリシー</a>
+                <span class="divider ms-3 me-3">|</span>
+                <a href="/2020" target="_blank">OOC 2020</a>
             </div>
             <div class="mb-5">
                 Object Oriented Conference 2024 に関するお問合せは公式Twitter（<a href="https://twitter.com/ooc_dev" target="_blank">@ooc_dev</a>） までお願いします。
             </div>
             <div class="copyright mb-2">
-                &copy; 2024 Object Oriented Conference 実行委員会
+                &copy; 2023-2024 Object Oriented Conference 実行委員会
             </div>
         </div>
     </footer>
