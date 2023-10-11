@@ -40,6 +40,10 @@
             color: var(--color-heading);
             scroll-margin-top: 100px;
         }
+        h4 {
+            font-size: 1.25rem;
+            margin-bottom: 1rem;
+        }
         a {
             color: var(--color-link);
             text-decoration: none;
@@ -59,9 +63,6 @@
         .navbar .navbar-brand {
             color: var(--color-heading);
         }
-        .hero-wrap .btn-outline-light:hover {
-            color: var(--color-heading);
-        }
         .btn-primary {
             --bs-btn-bg: var(--color-heading);
             --bs-btn-border-color: var(--color-heading);
@@ -71,6 +72,9 @@
             --bs-btn-active-border-color: var(--color-heading-shadow);
             --bs-btn-disabled-bg: var(--color-heading);
             --bs-btn-disabled-border-color: var(--color-heading);
+        }
+        .btn-outline-light:hover {
+            --bs-btn-hover-color: var(--color-heading);
         }
         .navbar {
             color: #000;
@@ -110,6 +114,9 @@
         div.ooc-timer .caption {
             font-size: 0.8rem;
         }
+        div.head-buttons .caption {
+            font-size: 0.8rem;
+        }
         @keyframes bggradient {
             0% { background-position: 0% 50%; }
             50% { background-position: 100% 50%; }
@@ -141,6 +148,7 @@
             };
             showTimer();
             setInterval(showTimer, 1000);
+            // スクロールに応じてトップバーを表示切替
             const $window = $(window);
             $window.on('scroll', ()=>{
                 if ($window.scrollTop() > $window.height()) {
@@ -149,6 +157,11 @@
                     $('nav.fixed-top').fadeOut();
                 }
             }).trigger('scroll');
+            // アクセスタブ切り替え
+            $('#access-tabs a.nav-link[data-bs-toggle="tab"]').on('show.bs.tab', function(e){
+                const $target = $($(e.target).data('bs-target'));
+                $target.addClass('active show').siblings('.tab-pane.active').removeClass('active show');
+            });
         });
     </script>
 </head>
@@ -181,15 +194,22 @@
                 <h1 class="mb-2">Object-Oriented Conference 2024</h1>
                 <div class="d-flex justify-content-center mb-4">
                     <div class="p-4">
+                        <div class="fs-1">&nbsp;</div>
+                        <div>前夜祭：</div>
+                        <div>本　編：</div>
+                    </div>
+                    <div class="p-4">
                         <div class="fs-1"><i class="fa-solid fa-fw fa-calendar-days"></i></div>
-                        <div>March 24, 2024</div>
+                        <div>March 23, 2024 (Sat)</div>
+                        <div>March 24, 2024 (Sun)</div>
                     </div>
                     <div class="p-4">
                         <div class="fs-1"><i class="fa-solid fa-fw fa-location-dot"></i></div>
+                        <div>docomo R&D OPEN LAB ODAIBA</div>
                         <div>お茶の水女子大学</div>
                     </div>
                 </div>
-                <div class="d-flex justify-content-center">
+                <div class="d-flex justify-content-center mb-5">
                     <div class="ooc-timer w-100 row row-cols-4">
                         <div class="col">
                             <div class="value day mb-2">-</div>
@@ -209,6 +229,20 @@
                         </div>
                     </div>
                 </div>
+                <div class="d-flex justify-content-center head-buttons">
+                    <div class="me-2">
+                        <a class="btn btn-lg btn-outline-light" href="https://fortee.jp/oocon-2024/speaker/proposal/cfp">
+                            セッションを申し込む
+                            <div class="caption">（2023.11.28まで）</div>
+                        </a>
+                    </div>
+                    <div class="ms-2">
+                        <a class="btn btn-lg btn-outline-light" href="javascript:$(window).scrollTop($('#sponsor').position().top-100);">
+                            スポンサー資料をみる
+                            <div class="caption">（2024.1.31まで）</div>
+                        </a>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -225,11 +259,14 @@
             <div class="row mb-4">
                 <div class="col">
                     <div class="text-black-50">2023-09-25</div>
-                    <div class="fw-bold">スポンサー募集を開始しました。</div>
-                    <div>
-                        OOC 2024 を応援してくださる企業様からの協賛を募集します。<br />
-                        詳しくは<a href="javascript:$(window).scrollTop($('#sponsor').position().top-100);">こちらをご覧ください</a>。
-                    </div>
+                    <div class="fw-bold">スポンサー募集を開始しました。詳しくは<a href="javascript:$(window).scrollTop($('#sponsor').position().top-100);">こちらを</a>ご覧ください。</div>
+                </div>
+            </div>
+            <div class="row mb-4">
+                <div class="col">
+                    <div class="text-black-50">2023-10-11</div>
+                    <div class="fw-bold">トーク募集を開始しました。</div>
+                    <div class="fw-bold">前夜祭の情報を追加しました。</div>
                 </div>
             </div>
         </div>
@@ -248,11 +285,17 @@
             </div>
             <div class="row mt-2 mb-2">
                 <div class="col-xl-1 col-md-2 col-3">開催日時</div>
-                <div class="col-xl-11 col-md-10 col-9">2024年3月24日（日）11:00〜18:00</div>
+                <div class="col-xl-11 col-md-10 col-9">
+                    前夜祭：2024年3月23日（土）<br />
+                    本　編：2024年3月24日（日）<br />
+                </div>
             </div>
             <div class="row mt-2 mb-2 bg-light">
                 <div class="col-xl-1 col-md-2 col-3">開催場所</div>
-                <div class="col-xl-11 col-md-10 col-9">お茶の水女子大学</div>
+                <div class="col-xl-11 col-md-10 col-9">
+                    前夜祭：docomo R&D OPEN LAB ODAIBA<br />
+                    本　編：お茶の水女子大学<br />
+                </div>
             </div>
             <div class="row mt-2 mb-2">
                 <div class="col-xl-1 col-md-2 col-3">参加対象</div>
@@ -272,21 +315,57 @@
     <section class="bg-light">
         <div class="container pt-5 pb-5">
             <h2 class="text-center mb-4" id="access">Access</h2>
-            <div class="d-flex mt-2 mb-2">
-                <div class="me-3"><i class="fa-solid fa-fw fa-location-dot"></i></div>
-                <div class="flex-grow-1">東京都文京区大塚2丁目1-1（<a href="https://goo.gl/maps/THLV9yUdd7yQbBWd7" target="_blank">Googleマップ</a>）</div>
-            </div>
-            <div class="d-flex mt-2 mb-2">
-                <div class="me-3"><i class="fa-solid fa-fw fa-train"></i></div>
-                <div class="flex-grow-1">
-                    東京メトロ丸ノ内線 茗荷谷駅より徒歩 7 分<br />
-                    東京メトロ有楽町線 護国寺駅より徒歩 8 分<br />
-                    都営バス 大塚2丁目停留所より徒歩 1 分<br />
+            <ul id="access-tabs" class="nav nav-tabs mb-4">
+                <li class="nav-item">
+                    <a class="nav-link" id="acceess-eve-tab" href="#" data-bs-toggle="tab" data-bs-target="#access-eve, #access-eve-map">前夜祭（3/23）</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" id="access-main-tab" href="#" data-bs-toggle="tab" data-bs-target="#access-main, #access-main-map">本編（3/24）</a>
+                </li>
+            </ul>
+            <div class="tab-content">
+                <div id="access-eve" class="tab-pane fade">
+                    <h4>docomo R&D OPEN LAB ODAIBA</h4>
+                    <div class="d-flex mt-2 mb-2">
+                        <div class="me-3"><i class="fa-solid fa-fw fa-location-dot"></i></div>
+                        <div class="flex-grow-1">東京都港区台場２丁目３−２ 台場フロンティアビル 12F（<a href="https://maps.app.goo.gl/hxanrqzuKfcAasAa7" target="_blank">Googleマップ</a>）</div>
+                    </div>
+                    <div class="d-flex mt-2 mb-2">
+                        <div class="me-3"><i class="fa-solid fa-fw fa-train"></i></div>
+                        <div class="flex-grow-1">
+                            ゆりかもめ「お台場海浜公園」駅より徒歩 1 分<br />
+                            りんかい線「東京テレポート」駅より徒歩 3 分<br />
+                            <br />
+                        </div>
+                    </div>
+                </div>
+                <div id="access-main" class="tab-pane fade show active">
+                    <h4>お茶の水女子大学</h4>
+                    <div class="d-flex mt-2 mb-2">
+                        <div class="me-3"><i class="fa-solid fa-fw fa-location-dot"></i></div>
+                        <div class="flex-grow-1">東京都文京区大塚2丁目1-1（<a href="https://maps.app.goo.gl/r4hoRTMUsWbu6wex9" target="_blank">Googleマップ</a>）</div>
+                    </div>
+                    <div class="d-flex mt-2 mb-2">
+                        <div class="me-3"><i class="fa-solid fa-fw fa-train"></i></div>
+                        <div class="flex-grow-1">
+                            東京メトロ丸ノ内線 茗荷谷駅より徒歩 7 分<br />
+                            東京メトロ有楽町線 護国寺駅より徒歩 8 分<br />
+                            都営バス 大塚2丁目停留所より徒歩 1 分<br />
+                        </div>
+                    </div>    
                 </div>
             </div>
         </div>
     </section>
-    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3239.2960249010666!2d139.72899397617297!3d35.718937572574994!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60188da7f9b14899%3A0x8be4584bf2f85995!2z44GK6Iy244Gu5rC05aWz5a2Q5aSn5a2m!5e0!3m2!1sja!2sjp!4v1694053536193!5m2!1sja!2sjp" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+
+    <div class="tab-content">
+        <div id="access-eve-map" class="tab-pane fade">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3242.961651940186!2d139.77519297615365!3d35.62867187260439!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60188907cb60ac6f%3A0x75c6cf763e298d6b!2sdocomo%20R%26D%20OPEN%20LAB%20ODAIBA!5e0!3m2!1sja!2sjp!4v1696989481550!5m2!1sja!2sjp" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+        <div id="access-main-map" class="tab-pane fade show active">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3239.2960249010666!2d139.72899397617297!3d35.718937572574994!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60188da7f9b14899%3A0x8be4584bf2f85995!2z44GK6Iy244Gu5rC05aWz5a2Q5aSn5a2m!5e0!3m2!1sja!2sjp!4v1694053536193!5m2!1sja!2sjp" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+    </div>
 
     <section class="bg-white">
         <div class="container pt-5 pb-5">
@@ -305,7 +384,7 @@
             </div>
             <div class="row mb-2">
                 <div class="col text-muted">
-                    （申込期限：2024年1月31日）
+                    （2024.1.31まで）
                 </div>
             </div>
         </div>
@@ -423,6 +502,26 @@
                         </div>
                         <div class="caption text-center">
                             がらぽん
+                        </div>
+                    </a>
+                </div>
+                <div class="staff col p-4">
+                    <a href="https://twitter.com/ajiyouji" target="_blank">
+                        <div class="banner mb-4">
+                            <img class="img-fluid" src="https://fortee.jp/files/oocon-2024/avatar/64614d02-fb01-47cc-af5c-38eb186ab738.jpg" alt="こまだ" />
+                        </div>
+                        <div class="caption text-center">
+                            こまだ
+                        </div>
+                    </a>
+                </div>
+                <div class="staff col p-4">
+                    <a href="https://twitter.com/suzuki_mar" target="_blank">
+                        <div class="banner mb-4">
+                            <img class="img-fluid" src="https://fortee.jp/files/oocon-2024/avatar/c22cbe73-709d-4a4d-957a-0f40540e0c4b.png" alt="鈴木まー" />
+                        </div>
+                        <div class="caption text-center">
+                            鈴木まー
                         </div>
                     </a>
                 </div>
