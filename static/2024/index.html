@@ -85,6 +85,10 @@
             background: #fff;
             box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
         }
+        div.sponsor-list div.sponsor img {
+            border: 1px solid #f0f0f0;
+            border-radius: 1rem;
+        }
         div.staff-list .banner img {
             border-radius: 50%;
             box-shadow: 0 0 10px 0 rgba(116, 108, 234, 0.2);
@@ -125,6 +129,76 @@
             0% { background-position: 0% 50%; }
             50% { background-position: 100% 50%; }
             100% { background-position: 0% 50%; }
+        }
+
+        /* レスポンシブデザイン調整 */
+        .row-cols-6>* {
+            flex: 0 0 auto;
+            width: calc(100% / 6);
+        }
+        .row-cols-5>* {
+            flex: 0 0 auto;
+            width: calc(100% / 5);
+        }
+        .row-cols-4>* {
+            flex: 0 0 auto;
+            width: calc(100% / 4);
+        }
+        @media (min-width: 576px) {
+            .row-cols-sm-8>* {
+                flex: 0 0 auto;
+                width: calc(100% / 8);
+            }
+            .row-cols-sm-7>* {
+                flex: 0 0 auto;
+                width: calc(100% / 7);
+            }
+            .row-cols-sm-6>* {
+                flex: 0 0 auto;
+                width: calc(100% / 6);
+            }
+            .row-cols-sm-5>* {
+                flex: 0 0 auto;
+                width: calc(100% / 5);
+            }
+        }
+        @media (min-width: 768px) {
+            .row-cols-md-8>* {
+                flex: 0 0 auto;
+                width: calc(100% / 8);
+            }
+            .row-cols-md-7>* {
+                flex: 0 0 auto;
+                width: calc(100% / 7);
+            }
+            .row-cols-md-6>* {
+                flex: 0 0 auto;
+                width: calc(100% / 6);
+            }
+            .row-cols-md-5>* {
+                flex: 0 0 auto;
+                width: calc(100% / 5);
+            }
+        }
+        @media (min-width: 992px) {
+            .row-cols-lg-8>* {
+                flex: 0 0 auto;
+                width: calc(100% / 8);
+            }
+            .row-cols-lg-7>* {
+                flex: 0 0 auto;
+                width: calc(100% / 7);
+            }
+        }
+        @media (min-width: 1200px) {
+            .row-cols-xl-8>* {
+                flex: 0 0 auto;
+                width: calc(100% / 8);
+            }
+            .row-cols-xl-7>* {
+                flex: 0 0 auto;
+                width: calc(100% / 7);
+            }
         }
     </style>
     <script>
@@ -381,15 +455,133 @@
                     以下リンクより資料をご覧いただき、期限までにお申し込みください。<br />
                 </div>
             </div>
-            <div class="row mt-4 mb-2">
+            <div class="row mt-4 mb-4">
                 <div class="col">
-                    <a class="btn btn-primary" href="https://fortee.jp/oocon-2024/go/sponsor-menu" target="_blank">スポンサーメニューのご案内</a>
+                    <a class="btn btn-primary" href="https://fortee.jp/oocon-2024/go/sponsor-menu" target="_blank">
+                        スポンサーメニューのご案内<small>（2024.1.31まで）</small>
+                    </a>
                 </div>
             </div>
-            <div class="row mb-2">
-                <div class="col text-muted">
-                    （2024.1.31まで）
+            <h3 class="mb-4" id="sponsor-gold">Gold</h3>
+            <div class="row mt-4 mb-4">
+            <div class="sponsor-list row row-cols-xl-4 row-cols-lg-3 row-cols-md-3 row-cols-sm-2 row-cols-1 mb-5">
+                <div class="text-muted">準備中</div>
+                <!--
+                <div class="sponsor col p-4">
+                    <a href="https://astah.change-vision.com/ja/" target="_blank">
+                        <div class="banner text-center mb-4">
+                            <img class="img-fluid" src="https://fortee.jp/images/avatar-blank.png" alt="株式会社チェンジビジョン - ソフトウェア設計支援ツール astah*" />
+                        </div>
+                        <div class="caption text-center">
+                            株式会社チェンジビジョン<br>ソフトウェア設計支援ツール astah*
+                        </div>
+                    </a>
                 </div>
+                <div class="sponsor col p-4">
+                    <a href="https://www.bengo4.com/corporate/" target="_blank">
+                        <div class="banner text-center mb-4">
+                            <img class="img-fluid" src="https://fortee.jp/images/avatar-blank.png" alt="弁護士ドットコム株式会社" />
+                        </div>
+                        <div class="caption text-center">
+                            弁護士ドットコム株式会社
+                        </div>
+                    </a>
+                </div>
+                -->
+            </div>
+
+            <h3 class="mb-4" id="sponsor-silver">Silver</h3>
+            <div class="sponsor-list row row-cols-xl-6 row-cols-lg-5 row-cols-md-4 row-cols-sm-3 row-cols-2 mb-5">    
+                <!--
+                <div class="sponsor col p-4">
+                    <a href="https://www.wh-plus.co.jp/" target="_blank">
+                        <div class="banner text-center mb-4">
+                            <img class="img-fluid" src="https://fortee.jp/images/avatar-blank.png" alt="株式会社ホワイトプラス（リネット）" />
+                        </div>
+                    </a>
+                </div>
+                -->
+                <div class="sponsor col p-4">
+                    <a href="https://umtp-japan.org" target="_blank">
+                        <div class="banner text-center mb-4">
+                            <img class="img-fluid" src="https://fortee.jp/files/oocon-2024/sponsor/cfc1149d-5cd1-4225-949a-d1306899b876.png" alt="UMTP/JAPAN 特定非営利活動法人UMLモデリング推進協議会" />
+                        </div>
+                    </a>
+                </div>
+                <div class="sponsor col p-4">
+                    <a href="https://www.yumemi.co.jp" target="_blank">
+                        <div class="banner text-center mb-4">
+                            <img class="img-fluid" src="https://fortee.jp/files/oocon-2024/sponsor/e8bbf691-15ab-443c-bd0b-dddca08c7f45.png" alt="株式会社ゆめみ" />
+                        </div>
+                    </a>
+                </div>
+                <div class="sponsor col p-4">
+                    <a href="https://timee.notion.site/Timee-Product-Org-Entrance-Book-b7380eb4f6954e29b2664fe6f5e775f9" target="_blank">
+                        <div class="banner text-center mb-4">
+                            <img class="img-fluid" src="https://fortee.jp/files/oocon-2024/sponsor/5ac250c6-5742-4487-b468-a248c3515091.png" alt="株式会社タイミー" />
+                        </div>
+                    </a>
+                </div>
+                <!--
+                <div class="sponsor col p-4">
+                    <a href="https://corp.kaonavi.jp/" target="_blank">
+                        <div class="banner text-center mb-4">
+                            <img class="img-fluid" src="https://fortee.jp/images/avatar-blank.png" alt="株式会社カオナビ" />
+                        </div>
+                    </a>
+                </div>
+                -->
+                <div class="sponsor col p-4">
+                    <a href="https://www.loglass.co.jp/" target="_blank">
+                        <div class="banner text-center mb-4">
+                            <img class="img-fluid" src="https://fortee.jp/files/oocon-2024/sponsor/ac3cf8f5-244d-4108-b46a-ed6b09a8077b.png" alt="株式会社ログラス" />
+                        </div>
+                    </a>
+                </div>
+                <div class="sponsor col p-4">
+                    <a href="https://www.ogis-ri.co.jp" target="_blank">
+                        <div class="banner text-center mb-4">
+                            <img class="img-fluid" src="https://fortee.jp/files/oocon-2024/sponsor/d1c17c62-d467-4044-80f5-a5c94f52ea93.png" alt="株式会社オージス総研" />
+                        </div>
+                    </a>
+                </div>
+                <!--
+                <div class="sponsor col p-4">
+                    <a href="https://forkwell.com/" target="_blank">
+                        <div class="banner text-center mb-4">
+                            <img class="img-fluid" src="https://fortee.jp/images/avatar-blank.png" alt="Forkwell" />
+                        </div>
+                    </a>
+                </div>
+                -->
+            </div>
+
+            <h3 class="mb-4" id="sponsor-lunch">Lunch</h3>
+            <div class="sponsor-list row row-cols-xl-7 row-cols-lg-6 row-cols-md-5 row-cols-sm-4 row-cols-3 mb-5">    
+                <div class="text-muted">準備中</div>
+                <!--
+                <div class="sponsor col p-4">
+                    <a href="" target="_blank">
+                        <div class="banner text-center mb-4">
+                            <img class="img-fluid" src="https://fortee.jp/images/avatar-blank.png" alt="" />
+                        </div>
+                    </a>
+                </div>
+                -->
+            </div>
+
+            <h3 class="mb-4" id="sponsor-bronze">Bronze</h3>
+            <div class="sponsor-list row row-cols-xl-8 row-cols-lg-7 row-cols-md-6 row-cols-sm-5 row-cols-4 mb-5">    
+                <div class="text-muted">準備中</div>
+                <!--
+                <div class="sponsor col p-4">
+                    <a href="" target="_blank">
+                        <div class="banner text-center mb-4">
+                            <img class="img-fluid" src="https://fortee.jp/images/avatar-blank.png" alt="" />
+                        </div>
+                    </a>
+                </div>
+                -->
             </div>
         </div>
     </section>
@@ -401,7 +593,7 @@
             <div class="staff-list row row-cols-xl-6 row-cols-lg-5 row-cols-md-4 row-cols-sm-3 row-cols-2 mb-5">
                 <div class="staff col p-4">
                     <a href="https://twitter.com/ariaki4dev" target="_blank">
-                        <div class="banner mb-4">
+                        <div class="banner text-center mb-4">
                             <img class="img-fluid" src="https://fortee.jp/files/oocon-2024/avatar/f5ccf57d-7b94-4263-b7e0-257608ee99f1.jpg" alt="ariaki" />
                         </div>
                         <div class="caption text-center">
@@ -411,7 +603,7 @@
                 </div>
                 <div class="staff col p-4">
                     <a target="_blank">
-                        <div class="banner mb-4">
+                        <div class="banner text-center mb-4">
                             <img class="img-fluid" src="https://fortee.jp/files/oocon-2024/avatar/a15d190f-e6f9-4d31-bbc0-aeaf087b42e3.jpg" alt="ayk" />
                         </div>
                         <div class="caption text-center">
@@ -421,7 +613,7 @@
                 </div>
                 <div class="staff col p-4">
                     <a target="_blank">
-                        <div class="banner mb-4">
+                        <div class="banner text-center mb-4">
                             <img class="img-fluid" src="https://fortee.jp/images/avatar-blank.png" alt="furuya" />
                         </div>
                         <div class="caption text-center">
@@ -431,7 +623,7 @@
                 </div>
                 <div class="staff col p-4">
                     <a href="https://twitter.com/hamaco" target="_blank">
-                        <div class="banner mb-4">
+                        <div class="banner text-center mb-4">
                             <img class="img-fluid" src="https://fortee.jp/files/oocon-2024/avatar/59fd1cf5-eaa2-43e7-96c9-af92f896c6a5.jpg" alt="hamaco" />
                         </div>
                         <div class="caption text-center">
@@ -441,7 +633,7 @@
                 </div>
                 <div class="staff col p-4">
                     <a target="_blank">
-                        <div class="banner mb-4">
+                        <div class="banner text-center mb-4">
                             <img class="img-fluid" src="https://fortee.jp/images/avatar-blank.png" alt="k-kijima" />
                         </div>
                         <div class="caption text-center">
@@ -451,7 +643,7 @@
                 </div>
                 <div class="staff col p-4">
                     <a target="_blank">
-                        <div class="banner mb-4">
+                        <div class="banner text-center mb-4">
                             <img class="img-fluid" src="https://fortee.jp/images/avatar-blank.png" alt="n.morishita" />
                         </div>
                         <div class="caption text-center">
@@ -461,7 +653,7 @@
                 </div>
                 <div class="staff col p-4">
                     <a target="_blank">
-                        <div class="banner mb-4">
+                        <div class="banner text-center mb-4">
                             <img class="img-fluid" src="https://fortee.jp/images/avatar-blank.png" alt="nrslib" />
                         </div>
                         <div class="caption text-center">
@@ -471,7 +663,7 @@
                 </div>
                 <div class="staff col p-4">
                     <a href="https://github.com/ochik07" target="_blank">
-                        <div class="banner mb-4">
+                        <div class="banner text-center mb-4">
                             <img class="img-fluid" src="https://fortee.jp/files/oocon-2024/avatar/86d742bb-2acb-4856-9a35-3c0ac07c67d0.png" alt="ochik" />
                         </div>
                         <div class="caption text-center">
@@ -481,7 +673,7 @@
                 </div>
                 <div class="staff col p-4">
                     <a href="https://twitter.com/oyakata2438" target="_blank">
-                        <div class="banner mb-4">
+                        <div class="banner text-center mb-4">
                             <img class="img-fluid" src="https://fortee.jp/images/avatar-blank.png" alt="oyakata2438" />
                         </div>
                         <div class="caption text-center">
@@ -491,7 +683,7 @@
                 </div>
                 <div class="staff col p-4">
                     <a href="https://twitter.com/onishi_feuer" target="_blank">
-                        <div class="banner mb-4">
+                        <div class="banner text-center mb-4">
                             <img class="img-fluid" src="https://fortee.jp/files/oocon-2024/avatar/311e46e1-aac8-4108-837e-82f10673704a.jpg" alt="オーニシ" />
                         </div>
                         <div class="caption text-center">
@@ -501,7 +693,7 @@
                 </div>
                 <div class="staff col p-4">
                     <a href="https://twitter.com/galapon_player" target="_blank">
-                        <div class="banner mb-4">
+                        <div class="banner text-center mb-4">
                             <img class="img-fluid" src="https://fortee.jp/files/oocon-2024/avatar/67fe1316-2f08-43f5-be66-43fa786b9643.png" alt="がらぽん" />
                         </div>
                         <div class="caption text-center">
@@ -511,7 +703,7 @@
                 </div>
                 <div class="staff col p-4">
                     <a href="https://twitter.com/ajiyouji" target="_blank">
-                        <div class="banner mb-4">
+                        <div class="banner text-center mb-4">
                             <img class="img-fluid" src="https://fortee.jp/files/oocon-2024/avatar/64614d02-fb01-47cc-af5c-38eb186ab738.jpg" alt="こまだ" />
                         </div>
                         <div class="caption text-center">
@@ -521,7 +713,7 @@
                 </div>
                 <div class="staff col p-4">
                     <a href="https://twitter.com/suzuki_mar" target="_blank">
-                        <div class="banner mb-4">
+                        <div class="banner text-center mb-4">
                             <img class="img-fluid" src="https://fortee.jp/files/oocon-2024/avatar/c22cbe73-709d-4a4d-957a-0f40540e0c4b.png" alt="鈴木まー" />
                         </div>
                         <div class="caption text-center">
