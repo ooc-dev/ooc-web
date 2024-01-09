@@ -107,6 +107,9 @@
       a:hover {
         color: var(--color-link-active);
       }
+      .color-link-active {
+        color: var(--color-link-active);
+      }
       .hero-wrap {
         background-image: url("../img-2024/hero-bg-capsule.svg"),
           url("../img-2024/hero-bg-elements.svg");
@@ -1093,6 +1096,16 @@
         }
         isNavContentOpen = !isNavContentOpen;
       };
+
+      //for material icon hover
+      $("a").hover(
+        function () {
+          $(this).find('span').addClass("color-link-active");
+        },
+        function () {
+          $(this).find('span').removeClass("color-link-active");
+        }
+      );
     </script>
   </body>
 </html>
