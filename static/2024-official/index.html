@@ -110,6 +110,9 @@
       .color-link-active {
         color: var(--color-link-active);
       }
+      .justify-text {
+        text-align: justify;
+      }
       .hero-wrap {
         background-image: url("../img-2024/hero-bg-capsule.svg"),
           url("../img-2024/hero-bg-elements.svg");
@@ -345,6 +348,10 @@
           flex-direction: column;
           justify-content: left;
         }
+        .news-issue {
+            margin-left : 0.7rem;
+            margin-right : 0.7rem;
+        }
         .event-image-text {
             display: flex;
             flex-direction: column;
@@ -381,21 +388,21 @@
             <div class=""><a href="#top" onclick="toggleMenu()"><img src="../img-2024/logo-row.svg" class="logo w-100" /></a></div>
             <div class="nav-wrapper mt-5 w-60">
                 <ul class="nav_list d-flex flex-column align-items-start gap-2">
-                  <li class="nav_item fs-4 fw-bold text-main"><a href="https://fortee.jp/oocon-2024/timetable" target="_blank">タイムテーブル<span class="material-symbols-outlined icon-align">open_in_new</span></a></li>
+                  <li class="nav_item fs-4 fw-bold text-main"><a href="https://fortee.jp/oocon-2024/timetable" target="_blank" rel="noopener noreferrer">タイムテーブル<span class="material-symbols-outlined icon-align">open_in_new</span></a></li>
                   <li class="nav_item fs-4 fw-semibold"><a href="#about-link" onclick="toggleMenu()">開催概要</a></li>
                   <li class="nav_item fs-4 fw-semibold"><a href="#sponsor-link" onclick="toggleMenu()">スポンサー</a></li>
                   <li class="nav_item fs-4 fw-semibold"><a href="#staff-link" onclick="toggleMenu()">スタッフ</a></li>
                 </ul>
                 <ul class="nav_list d-flex flex-column align-items-end">
                   <li class="nav_item fw-bold">
-                    <a href="https://esa-pages.io/p/sharing/20260/posts/45/b9e71589a45583e5c5cd.html"
+                    <a href="https://esa-pages.io/p/sharing/20260/posts/45/b9e71589a45583e5c5cd.html" target="_blank" rel="noopener noreferrer"
                       >行動規範<span class="material-symbols-outlined icon-align">
                         open_in_new
                       </span></a
                     >
                   </li>
                   <li class="nav_item fw-bold">
-                      <a href="https://esa-pages.io/p/sharing/20260/posts/44/51a5f161c223ed816560.html"
+                      <a href="https://esa-pages.io/p/sharing/20260/posts/44/51a5f161c223ed816560.html" target="_blank" rel="noopener noreferrer"
                         >プライバシーポリシー<span class="material-symbols-outlined icon-align">
                           open_in_new
                         </span></a
@@ -412,11 +419,10 @@
       >
         <div class="hero-content-wrapper ">
           <img src="../img-2024/logo.svg" class="logo w-50" />
-          <div class="hero-date mt-2 fw-medium">
+          <div class="mt-2 fw-medium">
               <p>
                 2024.<span>3</span>.<span>24</span>.SUN.
               </p>
-              <p class="ms-1">10:30 ~ 18:30</p>
           </div>
           <button onclick="window.open('https://ooc.connpass.com/event/305241/', '_blank')" class="apply-button shadow-sm mt-3">
             イベントに参加する
@@ -439,9 +445,9 @@
         <div class="container pt-5 pb-5">
           <div class="d-flex justify-content-center mb-4">
             <img src="../img-2024/ooc-c.svg" class="title-icon" />
-            <h2 class="fw-bold">お知らせ</h2>
+            <h2 class="ms-2 fw-bold">お知らせ</h2>
           </div>
-          <div class="row mb-4 bg-white p-3 rounded">
+          <div class="news-issue row mb-4 bg-white p-3 rounded">
             <div class="col res-row d-flex">
               <div class="fw-medium me-4">2024-01-11</div>
               <div>公式サイトを公開しました。</div>
@@ -453,10 +459,10 @@
         <div class="container pb-5">
           <div class="d-flex justify-content-center mb-4">
             <img src="../img-2024/ooc-c.svg" class="title-icon" />
-            <h2 class="fw-bold">OOCとは？</h2>
+            <h2 class="ms-2 fw-bold">OOCとは？</h2>
           </div>
           <div class="d-flex">
-            <p class="">
+            <p class="justify-text">
               Object-Oriented Conference
               はオブジェクト指向をテーマに、アイデアを共有し、議論を深めることで、みなさんの知見を深めるためのイベントです。<br/>
               オブジェクト指向といっても、分析設計から、現場で活かすためのプラクティスなど様々なテーマがあります。ソフトウェアの設計やプログラミングパラダイムの歴史について語るもよし、既存の設計手法に問題定義するのも、ネタに全振りするのもなんでもOK！です。参加者の皆様がそれぞれの新たな発見に出会えるようなイベントを目指しています。<br/>
@@ -472,7 +478,7 @@
         <div class="container pt-5 pb-5">
           <div class="d-flex justify-content-center mb-4">
             <img src="../img-2024/ooc-c.svg" class="title-icon" />
-            <h2 class="fw-bold">イベント</h2>
+            <h2 class="ms-2 fw-bold">イベント</h2>
           </div>
           <div class="mb-4 bg-white rounded">
             <div
@@ -495,12 +501,16 @@
               <div class="res-row row mt-2 mb-2">
                 <div class="fw-semibold col-xl-2 col-md-2">開催日時</div>
                 <div class="col-xl-9 col-md-10">
-                  2024年3月24日（日）11:00〜18:00
+                    前夜祭：024年3月23日（土）17:00〜19:00<br/>
+                    本編：2024年3月24日（日）10:30〜18:30
                 </div>
               </div>
               <div class="res-row row mt-2 mb-2">
                 <div class="fw-semibold col-xl-2 col-md-2">開催場所</div>
-                <div class="col-xl-9 col-md-10">お茶の水女子大学</div>
+                <div class="col-xl-9 col-md-10">
+                    前夜祭：docomo R&D OPEN LAB ODAIBA<br/>
+                    本編：お茶の水女子大学
+                </div>
               </div>
               <div class="res-row row mt-2 mb-2">
                 <div class="fw-semibold col-xl-2 col-md-2">参加対象</div>
@@ -537,13 +547,13 @@
                 <div class="eve-image"></div>
                 <div class="container-fluid p-3">
                     <div>
-                        <p>イベント当日をより楽しんでもらえるように、前夜祭を開催いたします。<br/>
+                        <p class="justify-text">イベント当日をより楽しんでもらえるように、前夜祭を開催いたします。<br/>
                             スピーカー同士のランダム対談や、翌日のトークの概要など前日からコンテンツがめじろ押しです。奮ってご参加ください！</p>
                     </div>
                   <div class="res-row row mt-2 mb-2">
                     <div class="fw-semibold col-xl-2 col-md-2">開催</div>
                     <div class="col-xl-9 col-md-10">
-                      2024年3月23日（土）18:00~20:00
+                      2024年3月23日（土）17:00~19:00
                     </div>
                   </div>
                   <div class="res-row row mt-2 mb-2">
@@ -556,7 +566,7 @@
                     <div class="fw-semibold col-xl-2 col-md-2">参加費</div>
                     <div class="col-xl-9 col-md-10">
                       スピーカー・ゲスト：無料<br />
-                      一般参加者：2,000円
+                      一般参加者：1,000円
                     </div>
                   </div>
                   <div class="res-row row mt-2 mb-2">
@@ -596,7 +606,7 @@
                 <div class="main-event-image"></div>
                 <div class="container-fluid p-3">
                     <div>
-                        <p>前夜祭を楽しんだ後は、いよいよOOC本編の開催です！<br/>
+                        <p class="justify-text">前夜祭を楽しんだ後は、いよいよOOC本編の開催です！<br/>
                             スピーカーによる刺激的なトーク、スポンサーブースやスタンプラリーなど様々なイベントをご用意しております。どうぞ存分にお楽しみください！</p>
                     </div>
                   <div class="res-row row mt-2 mb-2">
@@ -635,13 +645,13 @@
         </div>
       </section>
       <section id="sponsor-link">
-        <div class="container pt-5 pb-5" id="sponsor-link">
+        <div class="container pt-5 pb-5 mb-5" id="sponsor-link">
           <div class="d-flex justify-content-center mb-4">
             <img src="../img-2024/ooc-c.svg" class="title-icon" />
-            <h2 class="fw-bold">スポンサー</h2>
+            <h2 class="ms-2 fw-bold">スポンサー</h2>
           </div>
           <div class="d-flex flex-column justify-content-center align-items-center mt-2 mb-2 announce-card">
-            <div class="">
+            <div class="justify-text">
               Object-Oriented Conference 2024
               を応援してくださる企業様からの協賛を募集します。<br />
               各プランとも先着順で申し込みを受け付けます。<br />
@@ -661,7 +671,7 @@
                 <div class="text-muted">（申込期限：2024年1月31日）</div>
               </div>
           </div>
-        <div class="d-flex flex-column align-items-center justify-content-center mt-4 mb-4">
+        <div class="d-flex flex-column align-items-center justify-content-center mt-5 mb-4">
             <img src="../img-2024/sponsor-gold.svg" class="title-icon" />
             <h4 class="fw-bold mt-2">ゴールドスポンサー</h4>
         </div>
@@ -809,7 +819,7 @@
         <div class="container pt-5 pb-5">
             <div class="d-flex justify-content-center mb-4">
                 <img src="../img-2024/ooc-c.svg" class="title-icon" />
-                <h2 class="fw-bold">スタッフ</h2>
+                <h2 class="ms-2 fw-bold">スタッフ</h2>
             </div>
             <div class="chief-staff text-center">
                 <h4 class="fw-bold">実行委員長</h4>
@@ -983,28 +993,29 @@
             </div>
           </div>
           <h4 class="mb-4 text-center fw-bold" id="staff-1day">当日スタッフ</h4>
-          <div class="staff-list row mb-5">
-            <div class="d-flex flex-column justify-content-center align-items-center mt-2 mb-2 announce-card">
+          <div class="d-flex flex-column justify-content-center align-items-center mt-2 mb-2 announce-card">
+            <div class="justify-text">
+              Object-Oriented Conference 2024
+              を一緒に盛り上げてくれる当日スタッフを募集します。
+              カンファレンススタッフの経験がなくても大歓迎です！最高のカンファレンスにするために、ぜひお手伝いください！！<br/>
+              以下フォームより、期限までにお申し込みください。<br />
+              （応募多数の場合は早期に締め切ることがあります）
+            </div>
+            <div class="mt-5 mb-2">
                 <div class="">
-                  Object-Oriented Conference 2024
-                  を一緒に盛り上げてくれる当日スタッフを募集します。
-                  カンファレンススタッフの経験がなくても大歓迎です！最高のカンファレンスにするために、ぜひお手伝いください！！<br/>
-                  以下フォームより、期限までにお申し込みください。<br />
+                  <a
+                    class="btn btn-danger bg-ooc-red"
+                    href="https://fortee.jp/oocon-2024/staff/form/ooc2024-1day"
+                    target="_blank"
+                    >当日スタッフ応募フォーム</a
+                  >
                 </div>
-                <div class="mt-5 mb-2">
-                    <div class="">
-                      <a
-                        class="btn btn-danger bg-ooc-red"
-                        href="https://fortee.jp/oocon-2024/staff/form/ooc2024-1day"
-                        target="_blank"
-                        >当日スタッフ応募フォーム</a
-                      >
-                    </div>
-                  </div>
-                  <div class="mb-2">
-                    <div class="text-muted">（申込期限：2024年2月28日）</div>
-                  </div>
               </div>
+              <div class="mb-2">
+                <div class="text-muted">（申込期限：2024年2月28日）</div>
+              </div>
+          </div>
+          <div class="staff-list row mb-5">
           </div>
         </div>
       </section>
