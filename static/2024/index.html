@@ -148,9 +148,13 @@
         font-size: 24px;
         color: white;
         background-color: var(--color--ooc-yellow);
-        border: none;
+        border: 2px solid var(--color--ooc-yellow);
         border-radius: 100rem;
         padding: 0.1rem 2.5rem;
+      }
+      .apply-button:hover {
+        background-color: white;
+        color: var(--color--ooc-yellow);
       }
       .apply-button-outline {
         font-size: 24px;
@@ -159,6 +163,10 @@
         border: 2px solid var(--color--ooc-yellow);
         border-radius: 100rem;
         padding: 0.1rem 2.5rem;
+      }
+      .apply-button-outline:hover {
+        background-color: var(--color--ooc-yellow);
+        color: white;
       }
       .menu-wrapper {
         display: flex;
@@ -488,7 +496,7 @@
           <div class="news-issue row mb-4 bg-white p-3 rounded">
             <div class="col res-row d-flex">
               <div class="fw-medium me-4">2023-09-25</div>
-              <div>スポンサー募集を開始しました。<a class="color-link" href="javascript:$(window).scrollTop($('#sponsor').position().top-100);">詳しくはこちら</a>をご覧ください。</div>
+              <div>スポンサー募集を開始しました。<a class="color-link" href="#sponsor-link">詳しくはこちら</a>をご覧ください。</div>
             </div>
           </div>
         </div>
